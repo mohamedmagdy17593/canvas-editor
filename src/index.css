@@ -52,4 +52,10 @@ body {
   width: 100px;
   background: #00ABB3;
   border: 2px solid #3C4048;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
