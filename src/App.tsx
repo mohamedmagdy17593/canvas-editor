@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import EditorArea from './EditorArea';
+import Toolbar from './Toolbar';
+import { proxy, useSnapshot } from 'valtio';
+
+export const appState = proxy({ scale: 1 });
+
+export function useAppState() {
+  return useSnapshot(appState);
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Toolbar />
+      <EditorArea />
     </div>
   );
 }
