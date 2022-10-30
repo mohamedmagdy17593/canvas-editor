@@ -1,12 +1,5 @@
 import EditorArea from './EditorArea';
 import Toolbar from './Toolbar';
-import { proxy, useSnapshot } from 'valtio';
-
-export const appState = proxy({ zoom: 1, selectedId: null as null | number });
-
-export function useAppState() {
-  return useSnapshot(appState);
-}
 
 function App() {
   return (

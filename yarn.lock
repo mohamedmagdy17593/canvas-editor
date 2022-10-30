@@ -1079,6 +1079,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@cfcs/core@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@cfcs/core/-/core-0.0.6.tgz#9f8499dcd2ad29fd96d8fa72055411cd4a249121"
+  integrity sha512-FxfJMwoLB8MEMConeXUCqtMGqxdtePQxRBOiGip9ULcYYam3WfCgoY6xdnMaSkYvRvmosp5iuG+TiPofm65+Pw==
+  dependencies:
+    "@egjs/component" "^3.0.2"
+
 "@csstools/normalize.css@*":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-12.0.0.tgz#a9583a75c3f150667771f30b60d9f059473e62c4"
@@ -1211,6 +1218,11 @@
   integrity sha512-DRvyqMf+CPCOzAopQKHtW+X8iN6Hy6SFol+/7zCUiE5y4P/OB8JP8FtU4NxtZwtafvSL4faD5KoQYPj3JHzPFQ==
   dependencies:
     "@egjs/list-differ" "^1.0.0"
+
+"@egjs/component@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@egjs/component/-/component-3.0.2.tgz#c56794fcf1b2cb2768d09b021444779e54d0de1b"
+  integrity sha512-Mze3mwEE19+dERrimg0JVLtpOHG4AC+LOuKqvF4qGZjn0k23ZbNI7b/gy1LFR63LigC2b8k70aDjy8xoT+WNPA==
 
 "@egjs/list-differ@^1.0.0":
   version "1.0.0"
@@ -1687,7 +1699,7 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz#8be36a1f66f3265389e90b5f9c9962146758f728"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@scena/dragscroll@^1.2.0":
+"@scena/dragscroll@^1.2.0", "@scena/dragscroll@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@scena/dragscroll/-/dragscroll-1.2.1.tgz#123b9dca1b41e5fce695ff6c9556c909df42df5c"
   integrity sha512-bVJGC9ZpShoQB1yTRXYRhkAzC6KAlvlRPEiPb4tz15lda5F5va1wX1oeZpLTxmmHkf0x/AeVI1eolWihkILS4Q==
@@ -3463,7 +3475,7 @@ css-select@^4.1.3:
     domutils "^2.8.0"
     nth-check "^2.0.1"
 
-css-styled@^1.0.1, css-styled@~1.0.1:
+css-styled@^1.0.0, css-styled@^1.0.1, css-styled@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/css-styled/-/css-styled-1.0.1.tgz#803dc2bf615954805a56679cc500065c756ad525"
   integrity sha512-psJCbNDPPusDBWH/gszP6BetPh577QaqpvaysTNPitxX0nxdGiTgELiOCus0gZ0yXk3gvjShBrFP07nvn58/TQ==
@@ -4686,7 +4698,7 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
-gesto@^1.13.0, gesto@^1.13.3:
+gesto@^1.13.0, gesto@^1.13.1, gesto@^1.13.3:
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/gesto/-/gesto-1.13.3.tgz#2d66c8de7dae80ddc7b580cb6e360d15e11263fc"
   integrity sha512-OIOS19KzUWAqYrdV/g/j0WRbuCDorA3/E8+kBUGSV+AW9sgzrKtB3HuGTK8mfZQRJw21QRxrM5awZiR6qTd49g==
@@ -6082,6 +6094,21 @@ jsonpointer@^5.0.0:
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
+
+keycode@^2.2.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.1.tgz#09c23b2be0611d26117ea2501c2c391a01f39eff"
+  integrity sha512-Rdgz9Hl9Iv4QKi8b0OlCRQEzp4AgVxyCtz5S/+VIHezDmrDhkp2N2TqBWOLz0/gbeREXOOiI9/4b8BY9uw2vFg==
+
+keycon@^1.2.0:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/keycon/-/keycon-1.3.2.tgz#4def6e13ee450b22d3d6a8eaf7215dda8ecbde97"
+  integrity sha512-rNdi3Izqkp4r2P+f55Nrk8uCdEFS+eiMoUVNuIJOQ/qsTM0xuMvk3sv5E41pjfrClCGlC+T72MpXf6O+k9UXuA==
+  dependencies:
+    "@cfcs/core" "^0.0.6"
+    "@daybrush/utils" "^1.7.1"
+    "@scena/event-emitter" "^1.0.2"
+    keycode "^2.2.0"
 
 kind-of@^6.0.2:
   version "6.0.3"
@@ -7708,6 +7735,13 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-selecto@^1.20.2:
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/react-selecto/-/react-selecto-1.20.2.tgz#494bd4e47d9881a9871a91d8693300f9c5b16414"
+  integrity sha512-fLE3fAymw9Kz9Y5gB2+DqtJ59YssS+gnalJ1EptWbwINJK3DwPj9e3lw8O76s2ctbZ92TtrjaLXWbfU+MiaT1A==
+  dependencies:
+    selecto "~1.20.2"
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
@@ -8053,6 +8087,22 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha512-mEugaLK+YfkijB4fx0e6kImuJdCIt2LxCRcbEYPqRGCs4F2ogyfZU5IAZRdjCP8JPq2AtdNoC/Dux63d9Kiryg==
+
+selecto@~1.20.2:
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/selecto/-/selecto-1.20.2.tgz#196e7876f72675858ff814747701cd482b57e187"
+  integrity sha512-nhsBUvONr8DtRmoxIEzAYTLJm8U8XVT2KK6HWiAEjUfz/Bd2c8MJBilGJ34ra8/UDpSZnXYQkn3DH/GaTXZTQQ==
+  dependencies:
+    "@daybrush/utils" "^1.7.1"
+    "@egjs/children-differ" "^1.0.1"
+    "@scena/dragscroll" "^1.2.1"
+    "@scena/event-emitter" "^1.0.5"
+    css-styled "^1.0.0"
+    css-to-mat "^1.0.3"
+    framework-utils "^1.1.0"
+    gesto "^1.13.1"
+    keycon "^1.2.0"
+    overlap-area "^1.1.0"
 
 selfsigned@^2.1.1:
   version "2.1.1"

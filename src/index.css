@@ -20,6 +20,7 @@ body {
   padding: 0 24px;
   display: flex;
   align-items: center;
+  user-select: none;
 }
 
 .Button {
@@ -70,5 +71,5 @@ input {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-color: white;
+  color: white;
 }

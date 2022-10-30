@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppState } from './App';
+import { useAppState } from './state';
 import { infiniteViewer } from './EditorArea';
 import { zoomToPercent, percentToZoom } from './utils';
 
