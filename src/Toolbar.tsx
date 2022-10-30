@@ -16,7 +16,7 @@ function Toolbar() {
             value={percentZoom}
             onChange={(e) => {
               let value = +e.target.value;
-              infiniteViewer.setZoom(percentToZoom(value));
+              infiniteViewer().setZoom(percentToZoom(value));
             }}
             type="range"
             min={0}

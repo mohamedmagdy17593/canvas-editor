@@ -9,9 +9,10 @@ let items = [1, 2, 3, 4, 5, 6];
 
 export const zoomRange = [0.5, 6];
 
-export let infiniteViewer: InfiniteViewerClass = {} as InfiniteViewerClass;
-export let moveableManager: MoveableManagerInterface =
-  {} as MoveableManagerInterface;
+export let infiniteViewer: () => InfiniteViewerClass = () =>
+  ({} as InfiniteViewerClass);
+export let moveableManager: () => MoveableManagerInterface = () =>
+  ({} as MoveableManagerInterface);
 
 type FrameType = { translate: number[] };
 
@@ -45,11 +46,12 @@ function EditorArea() {
 
   useEffect(() => {
     // @ts-ignore
-    infiniteViewer = ref.current.infiniteViewer as InfiniteViewerClass;
-    infiniteViewer.scrollCenter();
+    infiniteViewer = () => ref.current.infiniteViewer as InfiniteViewerClass;
+    infiniteViewer().scrollCenter();
 
-    // @ts-ignore
-    moveableManager = moveableRef.current.moveable as MoveableManagerInterface;
+    moveableManager = () =>
+      // @ts-ignore
+      moveableRef.current.moveable as MoveableManagerInterface;
   }, []);
 
   let elementGuidelines = useMemo(() => {
@@ -70,7 +72,7 @@ function EditorArea() {
         zoomRange={zoomRange}
         maxPinchWheel={10}
         onScroll={() => {
-          appState.zoom = infiniteViewer.zoom;
+          appState.zoom = infiniteViewer().zoom;
         }}
       >
         <div ref={ref} className="EditorArea__canvas">
@@ -106,6 +108,7 @@ function EditorArea() {
             selected.some((el) => el === target || el.contains(target))
             // target.classList.contains('Box')
           ) {
+            console.log('here');
             e.stop();
           }
         }}
@@ -114,19 +117,25 @@ function EditorArea() {
             inputEvent.preventDefault();
           }
 
+          let isSelectBox = rect.height > 0 || rect.width > 0;
+          if (isSelectBox) {
+            return;
+          }
+
           setSelected(selected);
-          // @ts-ignore
           setTimeout(() => {
-            moveableManager.dragStart(inputEvent);
+            moveableManager().dragStart(inputEvent);
           });
         }}
       ></Selecto>
 
       <Moveable
+        // ables={[DimensionViewable]}
+        // dimensionViewable={true}
         ref={moveableRef}
         targets={selected}
         padding={{ left: 0, top: 0, right: 0, bottom: 0 }}
-        keepRatio={false}
+        // keepRatio={true}
         renderDirections={['nw', 'n', 'ne', 'w', 'e', 'sw', 's', 'se']}
         zoom={zoom}
         edge={false}
@@ -174,6 +183,20 @@ function EditorArea() {
           left: true,
         }}
         snapDigit={0}
+        // group
+        defaultGroupRotate={0}
+        defaultGroupOrigin={'50% 50%'}
+        onDragGroupStart={({ events }) => {
+          events.forEach((ev, i) => {
+            ev.set(getFrame(ev.target).translate);
+          });
+        }}
+        onDragGroup={({ events }) => {
+          events.forEach((ev, i) => {
+            getFrame(ev.target).translate = ev.beforeTranslate;
+            ev.target.style.transform = `translate(${ev.beforeTranslate[0]}px, ${ev.beforeTranslate[1]}px)`;
+          });
+        }}
       />
     </>
   );
