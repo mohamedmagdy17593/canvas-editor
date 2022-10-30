@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import Box from './Box';
 
+let items = [1, 2, 3, 4, 5];
+
 function EditorArea() {
   useEffect(() => {
     let handler: EventListenerOrEventListenerObject = (e) => e.preventDefault();
@@ -20,10 +22,9 @@ function EditorArea() {
   return (
     <div ref={editorRef} className="EditorArea">
       <div ref={ref} className="EditorArea__canvas">
-        <Box />
-        <Box />
-        <Box />
-        <Box />
+        {items.map((itemId) => (
+          <Box key={itemId} id={itemId} />
+        ))}
       </div>
     </div>
   );

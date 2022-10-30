@@ -2,7 +2,7 @@ import EditorArea from './EditorArea';
 import Toolbar from './Toolbar';
 import { proxy, useSnapshot } from 'valtio';
 
-export const appState = proxy({ scale: 1 });
+export const appState = proxy({ scale: 1, selectedId: null as null | number });
 
 export function useAppState() {
   return useSnapshot(appState);

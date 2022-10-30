@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
-import { Rnd } from 'react-rnd';
-import { useAppState } from './App';
+import { useAppState, appState } from './App';
 import Moveable from 'react-moveable';
 
-function Box() {
+function Box({ id }: { id: number }) {
+  let { selectedId } = useAppState();
   let [target, setTarget] = React.useState<any>();
   let [elementGuidelines, setElementGuidelines] = React.useState<any>([]);
   let [frame, setFrame] = React.useState({
     translate: [0, 0],
   });
 
-  console.log('elementGuidelines', elementGuidelines);
+  let isSelected = id === selectedId;
+
   useEffect(() => {
     setElementGuidelines(
       Array.from(
@@ -24,15 +25,19 @@ function Box() {
   return (
     <>
       <div
+        id={`Box_${id}`}
         className="Box"
         ref={(e) => {
           setTarget(e);
+        }}
+        onMouseDown={() => {
+          appState.selectedId = id;
         }}
       >
         Target
       </div>
       <Moveable
-        target={target}
+        target={isSelected ? target : undefined}
         padding={{ left: 0, top: 0, right: 0, bottom: 0 }}
         keepRatio={false}
         renderDirections={['nw', 'n', 'ne', 'w', 'e', 'sw', 's', 'se']}
