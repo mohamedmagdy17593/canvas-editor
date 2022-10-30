@@ -3,7 +3,7 @@ import { useAppState, appState } from './App';
 import Moveable from 'react-moveable';
 
 function Box({ id }: { id: number }) {
-  let { selectedId } = useAppState();
+  let { selectedId, zoom } = useAppState();
   let [target, setTarget] = React.useState<any>();
   let [elementGuidelines, setElementGuidelines] = React.useState<any>([]);
   let [frame, setFrame] = React.useState({
@@ -41,7 +41,7 @@ function Box({ id }: { id: number }) {
         padding={{ left: 0, top: 0, right: 0, bottom: 0 }}
         keepRatio={false}
         renderDirections={['nw', 'n', 'ne', 'w', 'e', 'sw', 's', 'se']}
-        zoom={1}
+        zoom={zoom}
         edge={false}
         origin={false}
         // resize

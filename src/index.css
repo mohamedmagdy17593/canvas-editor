@@ -58,4 +58,17 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  cursor: move;
+  user-select: none;
+}
+
+input {
+  accent-color: white;
+}
+
+.label-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+color: white;
 }
