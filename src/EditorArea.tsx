@@ -7,13 +7,14 @@ import Moveable, {
   MoveableManagerInterface,
 } from 'react-moveable';
 import { appState, useAppState } from './state';
+import { useWindowSize } from './utils';
 
 const CANVAS_WIDTH = 1250;
 const CANVAS_HEIGHT = 750;
 
 let items = [1, 2, 3, 4, 5, 6];
 
-export const zoomRange = [0.5, 6];
+export const zoomRange = [0.1, 11];
 
 export let infiniteViewer: () => InfiniteViewerClass = () =>
   ({} as InfiniteViewerClass);
@@ -28,6 +29,8 @@ function EditorArea() {
   let frame = React.useRef<{
     [key: string]: FrameType;
   }>({});
+
+  let size = useWindowSize();
 
   function getFrame(el: HTMLElement | SVGElement) {
     let id = el.id;
@@ -60,8 +63,34 @@ function EditorArea() {
   }, []);
 
   useEffect(() => {
-    // infiniteViewer().scrollCenter();
-  }, [view]);
+    switch (view) {
+      case 'actual-size': {
+        infiniteViewer().setZoom(1);
+        infiniteViewer().scrollTo(0, 0);
+        break;
+      }
+      case 'fit-content': {
+        let windowWidth = window.innerWidth;
+        let widthScale = windowWidth / CANVAS_WIDTH;
+
+        let windowHeight = window.innerHeight - 86;
+        let heightScale = windowHeight / CANVAS_HEIGHT;
+
+        let scale = Math.min(widthScale, heightScale);
+
+        infiniteViewer().setZoom(scale);
+        infiniteViewer().scrollCenter();
+        break;
+      }
+      case 'fit-width': {
+        let windowWidth = window.innerWidth;
+        let widthScale = windowWidth / CANVAS_WIDTH;
+        infiniteViewer().setZoom(widthScale);
+        infiniteViewer().scrollCenter();
+        break;
+      }
+    }
+  }, [view, size]);
 
   let elementGuidelines = useMemo(() => {
     return Array.from(
@@ -144,7 +173,7 @@ function EditorArea() {
             padding={{ left: 0, top: 0, right: 0, bottom: 0 }}
             // keepRatio={true}
             renderDirections={['nw', 'n', 'ne', 'w', 'e', 'sw', 's', 'se']}
-            zoom={zoom}
+            zoom={1 / zoom}
             edge={false}
             origin={false}
             // resize
