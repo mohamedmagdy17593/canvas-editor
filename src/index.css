@@ -21,6 +21,7 @@ body {
   display: flex;
   align-items: center;
   user-select: none;
+  gap: 16px;
 }
 
 .Button {
@@ -39,10 +40,16 @@ body {
   justify-content: center;
   background: #EAEAEA;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.EditorArea__wrapper {
+  position: relative;
 }
 
 .EditorArea__canvas {
-  width: 1260px;
+  width: 1250px;
   height: 750px;
   background: #B2B2B2;
   position: relative;
@@ -72,4 +79,8 @@ input {
   align-items: center;
   gap: 4px;
   color: white;
+}
+
+.Select {
+
 }
